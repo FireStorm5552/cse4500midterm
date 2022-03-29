@@ -22,7 +22,7 @@
           <td>{{ $uzer->id }}</td>
           <td>{{ $uzer->name }}</td>
 		  <td>{{ $uzer->email }}</td>
-		  <td>{{ $uzer->number }}</td>
+		  <td>{{ $uzer->phone }}</td>
 		  <td>{{ $uzer->address }}</td>
           <!-- <td><a class="btn btn-default btn-sm" href="{{ route('uzers.show',['uzer'=>$uzer->id]) }}">View</a></td> -->
         </tr>
