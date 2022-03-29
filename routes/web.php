@@ -37,3 +37,6 @@ Route::get('/db-test', function () {
           echo 'None';
     }
 });
+Route::fallback(function(){
+	return view('fallback');
+});
