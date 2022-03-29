@@ -12,7 +12,7 @@
     <table id="table" class="table table-bordered">
       <thead>
         <tr>
-          <th style="width: 10px">#</th><th>Task</th><th>Progress</th><th style="width: 40px">Action</th>
+          <th style="width: 10px">#</th><th>Name</th><th>Email</th><th>Phone Number</th><th>address</th>
         </tr>
       </thead>
       <tbody>
@@ -21,7 +21,10 @@
         <tr>
           <td>{{ $uzer->id }}</td>
           <td>{{ $uzer->name }}</td>
-          <td><a class="btn btn-default btn-sm" href="{{ route('users.show',['uzer'=>$uzer->id]) }}">View</a></td>
+		  <td>{{ $uzer->email }}</td>
+		  <td>{{ $uzer->number }}</td>
+		  <td>{{ $uzer->address }}</td>
+          <!-- <td><a class="btn btn-default btn-sm" href="{{ route('users.show',['uzer'=>$uzer->id]) }}">View</a></td> -->
         </tr>
         @endforeach
 
