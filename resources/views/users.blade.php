@@ -1,19 +1,41 @@
 @extends('adminlte::page')
 
-@section('title', 'title')
+@section('title', 'User List')
 
 @section('content_header')
-    <h1>Header</h1>
+    <h1>To Do's</h1>
 @stop
 
 @section('content')
-    <p>Content here</p>
-@stop
+<div class="card">
+  <div class="card-body">
+    <table id="table" class="table table-bordered">
+      <thead>
+        <tr>
+          <th style="width: 10px">#</th><th>Task</th><th>Progress</th><th style="width: 40px">Action</th>
+        </tr>
+      </thead>
+      <tbody>
 
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+        @foreach($uzers AS $uzer)
+        <tr>
+          <td>{{ $uzer->id }}</td>
+          <td>{{ $uzer->name }}</td>
+          <td><a class="btn btn-default btn-sm" href="{{ route('users.show',['uzer'=>$uzer->id]) }}">View</a></td>
+        </tr>
+        @endforeach
+
+      </tbody>
+    </table>
+  </div>
+</div>
+<a href="{{ route('users.create') }} " class="btn btn-primary" >Create</a>
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+<script>
+    $(document).ready(function() {
+        $('#table').DataTable();
+    } );
+</script>
 @stop
