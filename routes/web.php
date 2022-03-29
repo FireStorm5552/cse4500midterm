@@ -18,3 +18,15 @@ Route::get('/', function () {
 });
 
 URL::forceScheme('https');
+Route::get('/equipment', function () {
+    return view('equipment');
+});
+Route::get('/users', function () {
+    return view('users');
+});
+Route::get('/purchases', function () {
+    return view('purchases');
+});
+Route::get('/notes', function () {
+    return view('notes');
+});
