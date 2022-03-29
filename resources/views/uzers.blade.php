@@ -24,7 +24,7 @@
 		  <td>{{ $uzer->email }}</td>
 		  <td>{{ $uzer->number }}</td>
 		  <td>{{ $uzer->address }}</td>
-          <!-- <td><a class="btn btn-default btn-sm" href="{{ route('users.show',['uzer'=>$uzer->id]) }}">View</a></td> -->
+          <!-- <td><a class="btn btn-default btn-sm" href="{{ route('uzers.show',['uzer'=>$uzer->id]) }}">View</a></td> -->
         </tr>
         @endforeach
 
@@ -32,7 +32,7 @@
     </table>
   </div>
 </div>
-<a href="{{ route('users.create') }} " class="btn btn-primary" >Create</a>
+<a href="{{ route('uzers.create') }} " class="btn btn-primary" >Create</a>
 @stop
 
 @section('js')
