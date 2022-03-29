@@ -23,9 +23,9 @@ Route::resource('/users', UzerController::class);
 Route::get('/equipment', function () {
     return view('equipment');
 });
-Route::get('/users', function () {
+/*Route::get('/users', function () {
     return view('users');
-});
+});*/
 Route::get('/purchases', function () {
     return view('purchases');
 });
