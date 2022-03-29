@@ -15,7 +15,7 @@ class UzerController extends Controller
     public function index()
     {
         $uzers = Uzer::all();
-		return view('users',compact('uzers');
+		return view('users',compact('uzers'));
     }
 
     /**
