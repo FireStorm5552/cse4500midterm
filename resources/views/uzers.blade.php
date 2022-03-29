@@ -24,7 +24,7 @@
 		  <td>{{ $uzer->email }}</td>
 		  <td>{{ $uzer->phone }}</td>
 		  <td>{{ $uzer->address }}</td>
-          <!-- <td><a class="btn btn-default btn-sm" href="{{ route('uzers.show',['uzer'=>$uzer->id]) }}">View</a></td> -->
+          <td><a class="btn btn-default btn-sm" href="{{ route('uzers.show',['uzer'=>$uzer->id]) }}">View</a></td>
         </tr>
         @endforeach
 
