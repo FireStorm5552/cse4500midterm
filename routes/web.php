@@ -19,6 +19,7 @@ Route::get('/', function () {
 });
 
 URL::forceScheme('https');
+Route::resource('/todos', TodoController::class);
 Route::get('/equipment', function () {
     return view('equipment');
 });
@@ -45,4 +46,3 @@ Route::get('/db-migrate', function () {
     Artisan::call('migrate');
     echo Artisan::output();
 });
-Route::resource('/todos', TodoController::class);
