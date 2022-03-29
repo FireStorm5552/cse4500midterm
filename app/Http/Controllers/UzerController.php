@@ -15,7 +15,7 @@ class UzerController extends Controller
     public function index()
     {
         $uzers = Uzer::all();
-		return view('users',compact('uzers'));
+		return view('uzers',compact('uzers'));
     }
 
     /**
@@ -25,7 +25,7 @@ class UzerController extends Controller
      */
     public function create()
     {
-       return view('users.create');
+       return view('uzers.create');
     }
 
     /**
@@ -60,7 +60,7 @@ class UzerController extends Controller
     public function show($id)
     {
     $uzer= Uzer::find($id);
-	return view('users.show',compact('uzer'));
+	return view('uzers.show',compact('uzer'));
     }
 
     /**

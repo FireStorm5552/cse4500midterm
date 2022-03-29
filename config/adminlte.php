@@ -236,7 +236,7 @@ return [
     ],
     [         
         'text' => 'Users',
-        'url'  => 'users',
+        'url'  => 'uzers',
         'icon' => 'fas fa-fw fa-user',
     ],
 	[         
