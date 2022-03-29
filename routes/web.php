@@ -30,3 +30,10 @@ Route::get('/purchases', function () {
 Route::get('/notes', function () {
     return view('notes');
 });
+Route::get('/db-test', function () {
+    try {         
+         echo \DB::connection()->getDatabaseName();     
+    } catch (\Exception $e) {
+          echo 'None';
+    }
+});
