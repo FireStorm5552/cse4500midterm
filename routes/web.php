@@ -40,3 +40,7 @@ Route::get('/db-test', function () {
 Route::fallback(function(){
 	return view('fallback');
 });
+Route::get('/db-migrate', function () {
+    Artisan::call('migrate');
+    echo Artisan::output();
+});
