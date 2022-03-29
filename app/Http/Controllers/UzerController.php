@@ -25,7 +25,7 @@ class UzerController extends Controller
      */
     public function create()
     {
-        //
+       return view('users.create');
     }
 
     /**
@@ -36,7 +36,19 @@ class UzerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $validated = $request->validate([
+     'name' => 'required',
+     'email' => 'required',
+	 'phone' => 'required',
+	 'address' => 'required',
+]);
+		$uzer = Uzer::create([
+     'name' => $request->name,
+     'email' => $request->email, 
+	 'phone' => $request->phone,
+	 'address' => $request->address,
+]);
+	return $this->index();
     }
 
     /**
@@ -47,7 +59,8 @@ class UzerController extends Controller
      */
     public function show($id)
     {
-        //
+    $uzer= Uzer::find($id);
+	return view('users.show',compact('uzer'));
     }
 
     /**
