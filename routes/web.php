@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 URL::forceScheme('https');
-Route::resource('/todos', TodoController::class);
+Route::resource('/users', UzerController::class);
 Route::get('/equipment', function () {
     return view('equipment');
 });
