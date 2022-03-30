@@ -10,10 +10,10 @@
 <form method="post" action="{{ route('manufacturers.store') }}" >
     @csrf
     <x-adminlte-input name="name" label="Name" />
-    <x-adminlte-input name="salesphone" label="Sales Phone Number" type = "tel"/>
-	<x-adminlte-input name="salesemail" label="Sales Email Address" type = "email"/>
-	<x-adminlte-input name="techphone" label="Tech Support Phone Number" type = "tel"/>
-	<x-adminlte-input name="techemail" label="Tech Support Email Address" type = "email" />
+    <x-adminlte-input name="salesphone" label="Sales Phone Number" type="tel"/>
+	<x-adminlte-input name="salesemail" label="Sales Email Address" type="email"/>
+	<x-adminlte-input name="techphone" label="Tech Support Phone Number" type="tel"/>
+	<x-adminlte-input name="techemail" label="Tech Support Email Address" type="email" />
     <x-adminlte-button type="Submit" label="Submit" />
 </form>
 @stop
