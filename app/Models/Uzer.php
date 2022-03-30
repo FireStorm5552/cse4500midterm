@@ -10,3 +10,7 @@ class Uzer extends Model
     use HasFactory;
 	protected $fillable = ['name','email', 'phone'];
 }
+    public function equipment()
+    {
+        return $this->hasMany(Equipment::class);
+    }

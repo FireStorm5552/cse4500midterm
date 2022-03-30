@@ -23,7 +23,6 @@ return new class extends Migration
 			$table->foreignId('manufacturer_id')->constrained("manufacturers");
 			$table->foreignId('purchase_id')->constrained("purchases");
 			$table->foreignId('user_id')->constrained("uzers");
-			$table->foreignId('notes_id')->constrained("notes");
         });
     }
 

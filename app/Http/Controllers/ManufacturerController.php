@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Manufacturer;
 
 class ManufacturerController extends Controller
 {
@@ -13,7 +14,8 @@ class ManufacturerController extends Controller
      */
     public function index()
     {
-        //
+        $manufacturers = Manufacturer::all();
+		return view('manufacturers',compact('manufacturers'));
     }
 
     /**
@@ -23,7 +25,7 @@ class ManufacturerController extends Controller
      */
     public function create()
     {
-        //
+        return view('manufacturers.create');
     }
 
     /**
@@ -34,7 +36,17 @@ class ManufacturerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $validated = $request->validate([
+     'name' => 'required',
+     'email' => 'required',
+	 'phone' => 'required',
+]);
+		$uzer = Uzer::create([
+     'name' => $request->name,
+     'email' => $request->email, 
+	 'phone' => $request->phone,
+]);
+	return $this->index();
     }
 
     /**
