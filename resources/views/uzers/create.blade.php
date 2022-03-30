@@ -11,7 +11,7 @@
     @csrf
     <x-adminlte-input name="name" label="Name" />
     <x-adminlte-input name="email" type="email" label="Email" />
-	<x-adminlte-input name="phone" type="tel" label="Phone Number" />
+	<x-adminlte-input name="phone" type="tel" label="Phone Number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"/>
     <x-adminlte-button type="Submit" label="Submit" />
 </form>
 @stop
