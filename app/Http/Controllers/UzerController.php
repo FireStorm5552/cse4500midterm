@@ -70,7 +70,8 @@ class UzerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $uzer = Uzer::find($id);
+		return view('uzers.create', compact('uzer'));
     }
 
     /**
