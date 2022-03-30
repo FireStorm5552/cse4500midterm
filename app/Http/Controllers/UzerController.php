@@ -93,6 +93,7 @@ class UzerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Uzer::destroy($id);
+		return redirect('/uzers');
     }
 }

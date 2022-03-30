@@ -38,13 +38,17 @@ class ManufacturerController extends Controller
     {
        $validated = $request->validate([
      'name' => 'required',
-     'email' => 'required',
-	 'phone' => 'required',
+     'salesphone' => 'required',
+	 'salesemail' => 'required',
+     'techphone' => 'required',
+	 'techemail' => 'required',
 ]);
-		$uzer = Uzer::create([
+		$manufacturer = Manufacturer::create([
      'name' => $request->name,
-     'email' => $request->email, 
-	 'phone' => $request->phone,
+     'salesphone' => $request->salesphone, 
+	 'salesemail' => $request->salesemail,
+	 'techphone' => $request->techphone, 
+	 'techemail' => $request->techemail,
 ]);
 	return $this->index();
     }
@@ -57,7 +61,8 @@ class ManufacturerController extends Controller
      */
     public function show($id)
     {
-        //
+    $manufacturer= Manufacturer::find($id);
+	return view('manufacturers.show',compact('manufacturer'));
     }
 
     /**
@@ -91,6 +96,7 @@ class ManufacturerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Manufacturer::destroy($id);
+		return redirect('/manufacturers');
     }
 }
