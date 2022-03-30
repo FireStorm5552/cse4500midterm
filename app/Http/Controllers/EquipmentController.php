@@ -13,7 +13,8 @@ class EquipmentController extends Controller
      */
     public function index()
     {
-        //
+        $equipment = Equipment::all();
+		return view('equipment',compact('equipment'));
     }
 
     /**
@@ -23,7 +24,7 @@ class EquipmentController extends Controller
      */
     public function create()
     {
-        //
+       return view('equipment.create');
     }
 
     /**
@@ -34,7 +35,16 @@ class EquipmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $validated = $request->validate([
+     'name' => 'required',
+     'processor' => 'required',
+	 'ram' => 'required',
+	 'type' => 'required',
+     'manufacturer_id' => 'required',
+	 'purchase_id' => 'required',
+	 'uzer_id' => 'required',
+]);
+		$equipment = Equipment::create($validated);
     }
 
     /**
@@ -45,7 +55,9 @@ class EquipmentController extends Controller
      */
     public function show($id)
     {
-        //
+    $equipment= Equipment::find($id);
+	$equipment->notes;
+	return view('equipment.show',compact('equipment'));
     }
 
     /**
@@ -56,7 +68,8 @@ class EquipmentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $equipment = Equipment::find($id);
+		return view('equipment.edit', compact('equipment'));
     }
 
     /**
@@ -68,7 +81,19 @@ class EquipmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $validated = $request->validate([
+     'name' => 'required',
+     'processor' => 'required',
+	 'ram' => 'required',
+	 'type' => 'required',
+     'manufacturer_id' => 'required',
+	 'purchase_id' => 'required',
+	 'uzer_id' => 'required',
+]);
+
+	 Equipment::whereId($id) ->
+	 update($validated);
+	return $this->index();
     }
 
     /**
@@ -79,6 +104,7 @@ class EquipmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Equipment::destroy($id);
+		return redirect('/equipment');
     }
 }
