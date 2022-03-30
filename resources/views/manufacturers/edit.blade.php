@@ -1,14 +1,15 @@
 @extends('adminlte::page')
 
-@section('title', 'Manufacturers')
+@section('title', 'Edit Manufacturer')
 
 @section('content_header')
-    <h1>Manufacturers</h1>
+    <h1>Edit Manufacturer</h1>
 @stop
 
 @section('content')
-<form method="post" action="{{ route('manufacturers.store') }}" >
+<form method="post" action="{{ route('manufacturers.update', $manufacturers->id) }}" >
     @csrf
+	<input type = "hidden" name ="_method" value = "put" />
     <x-adminlte-input name="name" label="Name" />
     <x-adminlte-input name="salesphone" label="Sales Phone Number" />
 	<x-adminlte-input name="salesemail" label="Sales Email Address" />

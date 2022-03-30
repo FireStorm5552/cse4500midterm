@@ -73,7 +73,8 @@ class ManufacturerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $manufacturer = Manufacturer::find($id);
+		return view('manufacturers.edit', compact('manufacturer'));
     }
 
     /**
@@ -85,8 +86,19 @@ class ManufacturerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $validated = $request->validate([
+     'name' => 'required',
+     'salesphone' => 'required',
+	 'salesemail' => 'required',
+     'techphone' => 'required',
+	 'techemail' => 'required',
+]);
+
+	 Manufacturer::whereId($id) ->
+	 update($validated);
+	return $this->index();
     }
+
 
     /**
      * Remove the specified resource from storage.
