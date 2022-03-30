@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Purchase extends Model
 {
     use HasFactory;
+    protected $fillable = ['invoice','price', 'purchasedate'];
 	    public function equipment()
     {
         return $this->hasMany(Equipment::class);
