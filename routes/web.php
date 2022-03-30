@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UzerController;
 use App\Http\Controllers\ManufacturerController;
+use App\Http\Controllers\PurchaseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,11 +23,9 @@ Route::get('/', function () {
 URL::forceScheme('https');
 Route::resource('/uzers', UzerController::class);
 Route::resource('/manufacturers', ManufacturerController::class);
+Route::resource('/purchases', PurchaseController::class);
 Route::get('/equipment', function () {
     return view('equipment');
-});
-Route::get('/purchases', function () {
-    return view('purchases');
 });
 Route::get('/notes', function () {
     return view('notes');

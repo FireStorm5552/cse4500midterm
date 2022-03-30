@@ -7,12 +7,12 @@
 @stop
 
 @section('content')
-<form method="post" action="{{ route('uzers.update', $uzer->id) }}" >
+<form method="post" action="{{ route('purchases.update', $purchase->id) }}" >
     @csrf
 	<input type = "hidden" name ="_method" value = "put" />
-    <x-adminlte-input name="name" label="Name" />
-    <x-adminlte-input name="email" label="Email" />
-	<x-adminlte-input name="phone" label="Phone Number" />
+    <x-adminlte-input name="invoice" label="Name" />
+    <x-adminlte-input name="price" label="Email" />
+	<x-adminlte-input name="purchasedate" label="Phone Number" />
     <x-adminlte-button type="Submit" label="Submit" />
 </form>
 @stop

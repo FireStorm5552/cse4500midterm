@@ -7,13 +7,13 @@
 @stop
 
 @section('content')
-  <h2>Name: {{ $uzer->name; }}</h2>
-  <h2>Email: {{ $uzer->email; }}</h2>
-  <h2>Phone Number: {{ $uzer->phone; }}</h2>
-  <a href="{{ route('uzers.edit', ['uzer'=>$uzer->id]) }} " class="btn btn-warning">Update</a>
-  <a href="{{ route('uzers.destroy',['uzer'=>$uzer->id]) }}" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('submit-form').submit();">
+  <h2>Invoice Number: {{ $purchase->invoice; }}</h2>
+  <h2>Price: {{ $purchase->price; }}</h2>
+  <h2>Purchase Date: {{ $purchase->purchasedate; }}</h2>
+  <a href="{{ route('purchases.edit', ['purchase'=>$purchase->id]) }} " class="btn btn-warning">Update</a>
+  <a href="{{ route('purchases.destroy',['purchase'=>$purchase->id]) }}" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('submit-form').submit();">
   Delete</a>
-  <form id="submit-form" action="{{ route('uzers.destroy',['uzer'=>$uzer->id]) }}" method="POST" class="hidden">
+  <form id="submit-form" action="{{ route('purchases.destroy',['purchase'=>$purchase->id]) }}" method="POST" class="hidden">
     @csrf
     @method('DELETE')
 @stop

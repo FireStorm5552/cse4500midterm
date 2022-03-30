@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Purchase;
 
 class PurchaseController extends Controller
 {
@@ -13,7 +14,8 @@ class PurchaseController extends Controller
      */
     public function index()
     {
-        //
+        $purchases = Uzer::all();
+		return view('purchases',compact('purchases'));
     }
 
     /**
@@ -23,7 +25,7 @@ class PurchaseController extends Controller
      */
     public function create()
     {
-        //
+       return view('purchases.create');
     }
 
     /**
@@ -34,7 +36,17 @@ class PurchaseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $validated = $request->validate([
+     'invoice' => 'required',
+     'price' => 'required',
+	 'purchasedate' => 'required',
+]);
+		$purchase = Purchase::create([
+     'invoice' => $request->name,
+     'price' => $request->email, 
+	 'purchasedate' => $request->phone,
+]);
+	return $this->index();
     }
 
     /**
@@ -45,7 +57,9 @@ class PurchaseController extends Controller
      */
     public function show($id)
     {
-        //
+    $purchase= Purchase::find($id);
+	$purchase->equipment;
+	return view('purchases.show',compact('purchase'));
     }
 
     /**
@@ -56,7 +70,8 @@ class PurchaseController extends Controller
      */
     public function edit($id)
     {
-        //
+        $purchase = Purchase::find($id);
+		return view('purchases.edit', compact('purchase'));
     }
 
     /**
@@ -68,7 +83,15 @@ class PurchaseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $validated = $request->validate([
+     'invoice' => 'required',
+     'price' => 'required',
+	 'purchasedate' => 'required',
+]);
+
+	 Purchase::whereId($id) ->
+	 update($validated);
+	return $this->index();
     }
 
     /**
@@ -79,6 +102,7 @@ class PurchaseController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Uzer::destroy($id);
+		return redirect('/uzers');
     }
 }
