@@ -90,9 +90,11 @@ class UzerController extends Controller
 ]);
 
 	 $uzer = Uzer::find($id);
-     $uzer->name = $request->name;
-     $uzer->email = $request->email; 
-	 $uzer->phone = $request->phone;
+	 $uzer = Uzer::update([
+     'name' = $request->name;
+     'uzer' = $request->email; 
+	 'uzer' = $request->phone;
+	 ]);
 	return view ('users.show', compact('uzer'));
     }
 
