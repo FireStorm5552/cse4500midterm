@@ -10,8 +10,30 @@
 <form method="post" action="{{ route('uzers.store') }}" >
     @csrf
     <x-adminlte-input name="name" label="Name" />
-    <x-adminlte-input name="email" label="Email" />
-	<x-adminlte-input name="phone" label="Phone Number" />
+    <x-adminlte-input name="processor" label="Processor" />
+	<x-adminlte-input name="ram" label="RAM" />
+	<x-adminlte-input name="type" label="Type of Device" />
+    <x-adminlte-input name="manufacturer_id" label="Manufacturer" />
+	<select id = "manufacturer">
+		@foreach($manufacturers AS manufacturer)
+			<option value ="{{$manufacturer->id}}" {{$manufacturer->id == $equipment->manufacturer_id ? 'selected': ''}}> {{$manufacturer->name}}
+			</option>
+		@endforeach
+	</select>
+	<x-adminlte-input name="ram" label="RAM" />
+	<x-adminlte-input name="name" label="Name" />
+    <x-adminlte-input name="processor" label="Processor" />
+	<x-adminlte-input name="ram" label="RAM" />
     <x-adminlte-button type="Submit" label="Submit" />
 </form>
+@stop
+@section('js')
+    <script> function getManufacuters() {
+    $retVal = array();
+    $manufacuters = Manufacturer::where('id' ,'>' ,0)->get();
+    foreach($manufacuters as $manufacuter) {
+        $retVal[strval($manufacuter["id"])] = strval($manufacuter["name"]);
+    }
+    return $retVal;
+} </script>
 @stop
