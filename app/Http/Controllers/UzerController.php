@@ -58,6 +58,7 @@ class UzerController extends Controller
     public function show($id)
     {
     $uzer= Uzer::find($id);
+	$uzer->equipment;
 	return view('uzers.show',compact('uzer'));
     }
 
