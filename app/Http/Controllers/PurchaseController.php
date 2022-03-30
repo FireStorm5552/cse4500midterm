@@ -14,7 +14,7 @@ class PurchaseController extends Controller
      */
     public function index()
     {
-        $purchases = Uzer::all();
+        $purchases = Purchase::all();
 		return view('purchases',compact('purchases'));
     }
 
@@ -102,7 +102,7 @@ class PurchaseController extends Controller
      */
     public function destroy($id)
     {
-        Uzer::destroy($id);
-		return redirect('/uzers');
+        Purchase::destroy($id);
+		return redirect('/purchases');
     }
 }
