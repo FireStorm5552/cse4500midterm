@@ -9,6 +9,7 @@
 @section('content')
 <form method="post" action="{{ route('uzers.update', $uzer->id) }}" >
     @csrf
+	<input type = "hidden" name ="_method" value = "put" />
     <x-adminlte-input name="name" label="Name" />
     <x-adminlte-input name="email" label="Email" />
 	<x-adminlte-input name="phone" label="Phone Number" />
