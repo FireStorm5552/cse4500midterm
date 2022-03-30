@@ -71,7 +71,7 @@ class UzerController extends Controller
     public function edit($id)
     {
         $uzer = Uzer::find($id);
-		return view('uzers.create', compact('uzer'));
+		return view('uzers.edit', compact('uzer'));
     }
 
     /**
@@ -83,7 +83,17 @@ class UzerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $validated = $request->validate([
+     'name' => 'required',
+     'email' => 'required',
+	 'phone' => 'required',
+]);
+
+	 $uzer = Uzer::find($id);
+     uzer->name => $request->name,
+     uzer->email => $request->email, 
+	 uzer->phone => $request->phone,
+	return $this->index();
     }
 
     /**
