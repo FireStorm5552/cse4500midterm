@@ -90,11 +90,7 @@ class UzerController extends Controller
 ]);
 
 	 Uzer::whereId($id) ->
-	 update([
-     'name' => $request->name,
-     'email' => $request->email, 
-	 'phone' => $request->phone,
-	 ]);
+	 update($validated);
 	return $this->index();
     }
 
