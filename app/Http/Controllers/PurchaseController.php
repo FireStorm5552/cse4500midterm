@@ -42,9 +42,9 @@ class PurchaseController extends Controller
 	 'purchasedate' => 'required',
 ]);
 		$purchase = Purchase::create([
-     'invoice' => $request->name,
-     'price' => $request->email, 
-	 'purchasedate' => $request->phone,
+     'invoice' => $request->invoice,
+     'price' => $request->price, 
+	 'purchasedate' => $request->purchasedate,
 ]);
 	return $this->index();
     }
