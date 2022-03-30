@@ -17,11 +17,11 @@
       </thead>
       <tbody>
 
-        @foreach($equipments AS $equipment)
+        @foreach($equipment AS $equipment)
         <tr>
           <td>{{ $equipment->id }}</td>
           <td>{{ $equipment->name }}</td>
-          <td><a class="btn btn-default btn-sm" href="{{ route('equipment.show',['equipments'=>$equipment->id]) }}">View</a></td>
+          <td><a class="btn btn-default btn-sm" href="{{ route('equipment.show',['equipment'=>$equipment->id]) }}">View</a></td>
         </tr>
         @endforeach
 
