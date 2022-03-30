@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UzerController;
+use App\Http\Controllers\ManufacturerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,11 +21,9 @@ Route::get('/', function () {
 
 URL::forceScheme('https');
 Route::resource('/uzers', UzerController::class);
+Route::resource('/manufacturers', ManufacturerController::class);
 Route::get('/equipment', function () {
     return view('equipment');
-});
-Route::get('/manufacturers', function(){
-	return view('manufacturers');
 });
 Route::get('/purchases', function () {
     return view('purchases');
