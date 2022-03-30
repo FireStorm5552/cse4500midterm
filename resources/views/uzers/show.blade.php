@@ -10,5 +10,4 @@
   <h2>{{ $uzer->name; }}</h2>
   <h2>{{ $uzer->email; }}</h2>
   <h2>{{ $uzer->phone; }}</h2>
-  <h2>{{ $uzer->address; }}</h2>
 @stop

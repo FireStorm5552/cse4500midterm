@@ -12,7 +12,6 @@
     <x-adminlte-input name="name" label="Name" />
     <x-adminlte-input name="email" label="Email" />
 	<x-adminlte-input name="phone" label="Phone Number" />
-	<x-adminlte-input name="address" label="Address" />
     <x-adminlte-button type="Submit" label="Submit" />
 </form>
 @stop

@@ -40,13 +40,11 @@ class UzerController extends Controller
      'name' => 'required',
      'email' => 'required',
 	 'phone' => 'required',
-	 'address' => 'required',
 ]);
 		$uzer = Uzer::create([
      'name' => $request->name,
      'email' => $request->email, 
 	 'phone' => $request->phone,
-	 'address' => $request->address,
 ]);
 	return $this->index();
     }
