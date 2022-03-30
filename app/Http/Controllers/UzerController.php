@@ -93,7 +93,7 @@ class UzerController extends Controller
      $uzer->name = $request->name;
      $uzer->email = $request->email; 
 	 $uzer->phone = $request->phone;
-	return $this->index();
+	return view ('users.show', compact('uzer'));
     }
 
     /**
