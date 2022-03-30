@@ -10,8 +10,8 @@
 <form method="post" action="{{ route('uzers.store') }}" >
     @csrf
     <x-adminlte-input name="name" label="Name" />
-    <x-adminlte-input name="email" label="Email" type = "email"/>
-	<x-adminlte-input name="phone" label="Phone Number" type = "tel"/>
+    <x-adminlte-input name="email" type = "email" label="Email" />
+	<x-adminlte-input name="phone" type = "tel" label="Phone Number" />
     <x-adminlte-button type="Submit" label="Submit" />
 </form>
 @stop
