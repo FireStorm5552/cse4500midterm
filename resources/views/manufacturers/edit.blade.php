@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-<form method="post" action="{{ route('manufacturers.update', $manufacturers->id) }}" >
+<form method="post" action="{{ route('manufacturers.update', $manufacturer->id) }}" >
     @csrf
 	<input type = "hidden" name ="_method" value = "put" />
     <x-adminlte-input name="name" label="Name" />
