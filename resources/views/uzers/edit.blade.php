@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-<form method="put" action="{{ route('uzers.update') }}" >
+<form method="put" action="{{ route('uzers.update', $uzer->id) }}" >
     @csrf
     <x-adminlte-input name="name" label="Name" />
     <x-adminlte-input name="email" label="Email" />
