@@ -89,7 +89,7 @@ class UzerController extends Controller
 	 'phone' => 'required',
 ]);
 
-	 Uzer::where('id', $id) ->
+	 $uzer = Uzer::where('id', $id) ->
 	 update([
      'name' => $request->name,
      'email' => $request->email, 
