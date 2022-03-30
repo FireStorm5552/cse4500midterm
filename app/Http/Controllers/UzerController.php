@@ -90,9 +90,9 @@ class UzerController extends Controller
 ]);
 
 	 $uzer = Uzer::find($id);
-     uzer->name = $request->name,
-     uzer->email = $request->email, 
-	 uzer->phone = $request->phone,
+     uzer->name = $request->name
+     uzer->email = $request->email 
+	 uzer->phone = $request->phone
 	return $this->index();
     }
 
