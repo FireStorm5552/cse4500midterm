@@ -11,8 +11,8 @@
     @csrf
 	<input type = "hidden" name ="_method" value = "put" />
     <x-adminlte-input name="name" label="Name" />
-    <x-adminlte-input name="email" label="Email" />
-	<x-adminlte-input name="phone" label="Phone Number" />
+    <x-adminlte-input name="email" label="Email" type = "email"/>
+	<x-adminlte-input name="phone" label="Phone Number" type = "tel"/>
     <x-adminlte-button type="Submit" label="Submit" />
 </form>
 @stop
