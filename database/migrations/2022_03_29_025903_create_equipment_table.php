@@ -20,9 +20,9 @@ return new class extends Migration
 			$table->string('processor');
 			$table->string('ram');
 			$table->string('type');
-			$table->foreignId('manufacturer_id')->constrained("manufacturers");
-			$table->foreignId('purchase_id')->constrained("purchases");
-			$table->foreignId('user_id')->constrained("uzers");
+			$table->foreignId('manufacturer_id');
+			$table->foreignId('purchase_id');
+			$table->foreignId('user_id');
         });
     }
 
