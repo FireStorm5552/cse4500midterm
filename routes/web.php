@@ -24,7 +24,7 @@ Route::get('/equipment', function () {
     return view('equipment');
 });
 Route::get('/manufacturers', function(){
-	return view(/'manufacturers');
+	return view('manufacturers');
 });
 Route::get('/purchases', function () {
     return view('purchases');
