@@ -45,7 +45,8 @@ class EquipmentController extends Controller
 	 'purchase_id' => 'required',
 	 'uzer_id' => 'required',
 ]);
-		$equipment = Equipment::create($validated);
+		$equipments = Equipment::create($validated);
+			return $this->index();
     }
 
     /**
