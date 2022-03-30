@@ -95,7 +95,7 @@ class UzerController extends Controller
      'email' => $request->email, 
 	 'phone' => $request->phone,
 	 ]);
-	return view ('uzers', compact('uzer'));
+	return $this->index();
     }
 
     /**
