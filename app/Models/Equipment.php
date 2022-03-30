@@ -23,6 +23,6 @@ class Equipment extends Model
     }
 	public function uzers()
     {
-    return $this->hasMany(Uzer::class);
+    return $this->belongsTo(Uzer::class);
     }
 }
