@@ -249,6 +249,11 @@ return [
         'url'  => 'notes',
         'icon' => 'fas fa-fw fa-file-alt',
     ],
+	    [         
+        'text' => 'Manufacturers',
+        'url'  => 'manufacturers',
+        'icon' => 'fas fa-fw fa-file-alt',
+    ],
 ],
 
     /*
