@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Notes;
+use Kris\LaravelFormBuilder\FormBuilder;
+use App\Forms\NotesForm;
 class NoteController extends Controller
 {
     /**
@@ -13,7 +15,8 @@ class NoteController extends Controller
      */
     public function index()
     {
-        //
+        $notes = Note::all();
+        return view('notes', compact('notes'));
     }
 
     /**
@@ -21,9 +24,13 @@ class NoteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(FormBuilder $formBuilder)
     {
-        //
+        $form = $formBuilder->create(NotesForm::class, [
+            'method' => 'POST',
+            'url' => route('note.store')
+        ]);
+        return view('notes.create', compact('form'));
     }
 
     /**
@@ -34,7 +41,10 @@ class NoteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $form = $formBuilder->create(EquipmentForm::class);
+        $form->redirectIfNotValid();
+        Equipment::create($form->getFieldValues());
+        return $this->index();
     }
 
     /**
@@ -45,7 +55,8 @@ class NoteController extends Controller
      */
     public function show($id)
     {
-        //
+         $note = Note::find($id);
+        return view('notes.show', compact('note'));
     }
 
     /**
@@ -56,7 +67,14 @@ class NoteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $note = Note::find($id);
+
+        $form = $formBuilder->create(NoteForm::class, [
+            'method' => 'PUT',
+            'url' => route('note.update', ['note'=>$note->id]),
+            'model' => $note,
+        ]);
+        return view('notes.create', compact('form'));
     }
 
     /**
@@ -68,7 +86,13 @@ class NoteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $form = $formBuilder->create(NoteForm::class);
+        $form->redirectIfNotValid();
+
+        $note = Note::find($id);
+        $note->update($form->getFieldValues());
+
+        return redirect('/notes/' . $id);
     }
 
     /**
@@ -79,6 +103,7 @@ class NoteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Note::destroy($id);
+        return redirect('/notes');
     }
 }

@@ -8,5 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Note extends Model
 {
     use HasFactory;
-	protected $fillable = ['services','software', 'notes'];
+	protected $fillable = ['services','software', 'notes','equipment_id'];
+	    public function equipment()
+    {
+        return $this->belongsTo(Equipment::class);
+    }
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\UzerController;
 use App\Http\Controllers\ManufacturerController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\EquipmentController;
+use App\Http\Controllers\NoteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,9 +27,7 @@ Route::resource('/uzers', UzerController::class);
 Route::resource('/manufacturers', ManufacturerController::class);
 Route::resource('/purchases', PurchaseController::class);
 Route::resource('/equipment', EquipmentController::class);
-Route::get('/notes', function () {
-    return view('notes');
-});
+Route::resource('/notes', NoteController::class);
 Route::get('/db-test', function () {
     try {         
          echo \DB::connection()->getDatabaseName();     
