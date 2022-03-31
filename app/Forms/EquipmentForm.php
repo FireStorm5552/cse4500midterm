@@ -67,13 +67,13 @@ class EquipmentForm extends Form
         ])
         ->add('uzer_id', Field::SELECT, [
             'rules' => 'required',
-            'label' => 'Manufacturer',
+            'label' => 'Assigned User',
             'choices' => getUzers(),
             'empty_value' => '=== Select Manufacturer ==='
         ])
         ->add('purchase_', Field::SELECT, [
             'rules' => 'required',
-            'label' => 'Manufacturer',
+            'label' => 'Invoice Number',
             'choices' => getPurchases(),
             'empty_value' => '=== Select Manufacturer ==='
         ])
