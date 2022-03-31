@@ -41,7 +41,7 @@ class NoteController extends Controller
      */
     public function store(FormBuilder $formBuilder)
     {
-        $form = $formBuilder->create(NoteForm::class);
+        $form = $formBuilder->create(NotesForm::class);
         $form->redirectIfNotValid();
         Equipment::create($form->getFieldValues());
         return $this->index();
@@ -69,7 +69,7 @@ class NoteController extends Controller
     {
         $note = Note::find($id);
 
-        $form = $formBuilder->create(NoteForm::class, [
+        $form = $formBuilder->create(NotesForm::class, [
             'method' => 'PUT',
             'url' => route('note.update', ['note'=>$note->id]),
             'model' => $note,
@@ -86,7 +86,7 @@ class NoteController extends Controller
      */
     public function update(Request $request, $id, FormBuilder $formBuilder)
     {
-        $form = $formBuilder->create(NoteForm::class);
+        $form = $formBuilder->create(NotesForm::class);
         $form->redirectIfNotValid();
 
         $note = Note::find($id);
