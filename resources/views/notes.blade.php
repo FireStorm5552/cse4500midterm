@@ -21,7 +21,7 @@
         <tr>
           <td>{{ $note->id }}</td>
           <td>{{ $note->equipment->name }}</td>
-          <td><a class="btn btn-default btn-sm" href="{{ route('note.show',['note'=>$note->id]) }}">View</a></td>
+          <td><a class="btn btn-default btn-sm" href="{{ route('notes.show',['note'=>$note->id]) }}">View</a></td>
         </tr>
         @endforeach
 
@@ -29,7 +29,7 @@
     </table>
   </div>
 </div>
-<a href="{{ route('note.create') }} " class="btn btn-primary" >Create</a>
+<a href="{{ route('notes.create') }} " class="btn btn-primary" >Create</a>
 @stop
 
 @section('js')
