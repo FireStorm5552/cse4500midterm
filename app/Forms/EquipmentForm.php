@@ -43,19 +43,15 @@ class EquipmentForm extends Form
             'rules' => 'required',
             'label' => 'Name'
         ])
-        ->add('price', Field::NUMBER, [
+        ->add('processor', Field::TEXT, [
             'rules' => 'required',
-            'label' => 'Price'
-        ])
-        ->add('ghz', Field::TEXT, [
-            'rules' => 'required',
-            'label' => 'GHz'
+            'label' => 'Processor'
         ])
         ->add('ram', Field::TEXT, [
             'rules' => 'required',
             'label' => 'Ram'
         ])
-        ->add('category', Field::TEXT, [
+        ->add('type', Field::TEXT, [
             'rules' => 'required',
             'label' => 'Category'
         ])
@@ -71,7 +67,7 @@ class EquipmentForm extends Form
             'choices' => getUzers(),
             'empty_value' => '=== Select Manufacturer ==='
         ])
-        ->add('purchase_', Field::SELECT, [
+        ->add('purchase_id', Field::SELECT, [
             'rules' => 'required',
             'label' => 'Invoice Number',
             'choices' => getPurchases(),
