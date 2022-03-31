@@ -15,7 +15,7 @@
   <a href="{{ route('equipment.edit', ['equipment'=>$equipment->id]) }} " class="btn btn-warning">Update</a>
   <a href="{{ route('equipment.destroy',['equipment'=>$equipment->id]) }}" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('submit-form').submit();">
   Delete</a>
-  <form id="submit-form" action="{{ route('uzers.destroy',['equipment'=>$equipment->id]) }}" method="POST" class="hidden">
+  <form id="submit-form" action="{{ route('equipment.destroy',['equipment'=>$equipment->id]) }}" method="POST" class="hidden">
     @csrf
     @method('DELETE')
 @stop
