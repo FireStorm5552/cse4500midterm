@@ -5,6 +5,8 @@ namespace App\Forms;
 use Kris\LaravelFormBuilder\Form;
 use Kris\LaravelFormBuilder\Field;
 
+use App\Models\Equipment;
+
 function getEquipment() {
     $retVal = array();
     $equipment = Equipment::where('id' ,'>' ,0)->get();
