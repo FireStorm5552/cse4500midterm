@@ -25,7 +25,7 @@ class EquipmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(FormBuilder $formBuilder)
     {
         $form = $formBuilder->create(EquipmentForm::class, [
             'method' => 'POST',
@@ -40,7 +40,7 @@ class EquipmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FormBuilder $formBuilder)
     {
         $form = $formBuilder->create(EquipmentForm::class);
         $form->redirectIfNotValid();
@@ -54,7 +54,7 @@ class EquipmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, FormBuilder $formBuilder)
     {
     $equipment= Equipment::find($id);
 	$equipment->notes;
@@ -86,7 +86,7 @@ class EquipmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, FormBuilder $formBuilder)
     {
         $form = $formBuilder->create(EquipmentForm::class);
         $form->redirectIfNotValid();
