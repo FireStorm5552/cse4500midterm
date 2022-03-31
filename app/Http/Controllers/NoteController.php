@@ -71,7 +71,7 @@ class NoteController extends Controller
 
         $form = $formBuilder->create(NotesForm::class, [
             'method' => 'PUT',
-            'url' => route('note.update', ['note'=>$note->id]),
+            'url' => route('notes.update', ['note'=>$note->id]),
             'model' => $note,
         ]);
         return view('notes.create', compact('form'));
