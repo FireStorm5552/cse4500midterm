@@ -12,8 +12,8 @@
   <h2>RAM: {{ $equipment->ram; }}</h2>
   <h2>Type: {{ $equipment->type; }}</h2>
   <h2>Manufacturer: {{ $equipment->manufacturer->name; }}</h2>
-  <h2>Invoice Number: {{ $equipment->purchase->invoice; }}</h2>
-  <h2>Assigned User: {{ $equipment->uzer->name; }}</h2>
+  <h2>Invoice Number: {{ $equipment->purchases->invoice; }}</h2>
+  <h2>Assigned User: {{ $equipment->uzers->name; }}</h2>
   <a href="{{ route('equipment.edit', ['equipment'=>$equipment->id]) }} " class="btn btn-warning">Update</a>
   <a href="{{ route('equipment.destroy',['equipment'=>$equipment->id]) }}" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('submit-form').submit();">
   Delete</a>
