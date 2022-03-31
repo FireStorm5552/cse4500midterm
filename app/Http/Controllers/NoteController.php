@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Notes;
+use App\Models\Note;
 use Kris\LaravelFormBuilder\FormBuilder;
 use App\Forms\NotesForm;
 class NoteController extends Controller
