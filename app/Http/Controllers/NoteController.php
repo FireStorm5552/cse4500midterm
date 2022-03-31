@@ -41,7 +41,7 @@ class NoteController extends Controller
      */
     public function store(FormBuilder $formBuilder)
     {
-        $form = $formBuilder->create(EquipmentForm::class);
+        $form = $formBuilder->create(NoteForm::class);
         $form->redirectIfNotValid();
         Equipment::create($form->getFieldValues());
         return $this->index();
