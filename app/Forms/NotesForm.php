@@ -9,7 +9,7 @@ use App\Models\Equipment;
 
 function getEquipment() {
     $retVal = array();
-    $equipment = Equipment::where('id' ,'>' ,0)->get();
+    $equipments = Equipment::where('id' ,'>' ,0)->get();
     foreach($equipments as $equipment) {
         $retVal[strval($equipment["id"])] = strval($equipment["name"]);
     }
