@@ -31,7 +31,7 @@ function getPurchases() {
     $retVal = array();
     $purchases = Purchase::where('id' ,'>' ,0)->get();
     foreach($purchases as $purchase) {
-        $retVal[strval($purchase["id"])] = strval($purchase["name"]);
+        $retVal[strval($purchase["id"])] = strval($purchase["ivoice"]);
     }
     return $retVal;
 }
