@@ -5,17 +5,25 @@ namespace App\Forms;
 use Kris\LaravelFormBuilder\Form;
 use Kris\LaravelFormBuilder\Field;
 
-
+function getEquipment() {
+    $retVal = array();
+    $equipment = Equipment::where('id' ,'>' ,0)->get();
+    foreach($equipments as $equipment) {
+        $retVal[strval($equipment["id"])] = strval($equipment["name"]);
+    }
+    return $retVal;
+}
 class NotesForm extends Form
 {
     public function buildForm()
     {
         $this
-            ->add('equipment_id', Field::NUMBER, [
-                'rules' => 'required',
-                'label' => 'Equipment ID',
-                'attr' => ['readonly' => 'true'],
-            ])
+        ->add('equipment_id', Field::SELECT, [
+            'rules' => 'required',
+            'label' => 'Assigned User',
+            'choices' => getEquipment(),
+            'empty_value' => '=== Select Equipment ==='
+        ])
             ->add('services', Field::TEXT, [
                 'rules' => 'required',
                 'label' => 'Service'
