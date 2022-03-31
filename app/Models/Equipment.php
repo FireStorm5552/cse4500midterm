@@ -13,7 +13,7 @@ class Equipment extends Model
 	{
     return $this->belongsTo(Manufacturer::class);
     }
-	public function purchases()
+	public function purchase()
     {
     return $this->belongsTo(Purchase::class);
     }
@@ -21,7 +21,7 @@ class Equipment extends Model
     {
     return $this->hasMany(Note::class);
     }
-	public function uzers()
+	public function uzer()
     {
     return $this->belongsTo(Uzer::class);
     }
