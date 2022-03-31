@@ -43,7 +43,7 @@ class NoteController extends Controller
     {
         $form = $formBuilder->create(NotesForm::class);
         $form->redirectIfNotValid();
-        Equipment::create($form->getFieldValues());
+        Note::create($form->getFieldValues());
         return $this->index();
     }
 
