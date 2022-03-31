@@ -1,19 +1,23 @@
 @extends('adminlte::page')
 
-@section('title', 'Users')
+@section('title', 'Equipment')
 
 @section('content_header')
-    <h1>Users</h1>
+    <h1>Equipment</h1>
 @stop
 
 @section('content')
-  <h2>Name: {{ $uzer->name; }}</h2>
-  <h2>Email: {{ $uzer->email; }}</h2>
-  <h2>Phone Number: {{ $uzer->phone; }}</h2>
-  <a href="{{ route('uzers.edit', ['uzer'=>$uzer->id]) }} " class="btn btn-warning">Update</a>
-  <a href="{{ route('uzers.destroy',['uzer'=>$uzer->id]) }}" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('submit-form').submit();">
+  <h2>Name: {{ $equipment->name; }}</h2>
+  <h2>Processor: {{ $equipment->processor; }}</h2>
+  <h2>RAM: {{ $equipment->ram; }}</h2>
+  <h2>Type: {{ $equipment->type; }}</h2>
+  <h2>Manufacturer: {{ $equipment->manufacturer->name; }}</h2>
+  <h2>Invoice Number: {{ $equipment->purchase->invoice; }}</h2>
+  <h2>Assigned User: {{ $equipment->uzer->name; }}</h2>
+  <a href="{{ route('equipment.edit', ['equipment'=>$equipment->id]) }} " class="btn btn-warning">Update</a>
+  <a href="{{ route('equipment.destroy',['equipment'=>$equipment->id]) }}" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('submit-form').submit();">
   Delete</a>
-  <form id="submit-form" action="{{ route('uzers.destroy',['uzer'=>$uzer->id]) }}" method="POST" class="hidden">
+  <form id="submit-form" action="{{ route('uzers.destroy',['equipment'=>$equipment->id]) }}" method="POST" class="hidden">
     @csrf
     @method('DELETE')
 @stop
