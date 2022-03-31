@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Equipment;
+use Kris\LaravelFormBuilder\FormBuilder;
+use App\Forms\EquipmentForm;
 
 class EquipmentController extends Controller
 {
@@ -25,7 +27,11 @@ class EquipmentController extends Controller
      */
     public function create()
     {
-       return view('equipment.create');
+        $form = $formBuilder->create(EquipmentForm::class, [
+            'method' => 'POST',
+            'url' => route('equipment.store')
+        ]);
+        return view('equipment.create', compact('form'));
     }
 
     /**
@@ -36,17 +42,10 @@ class EquipmentController extends Controller
      */
     public function store(Request $request)
     {
-       $validated = $request->validate([
-     'name' => 'required',
-     'processor' => 'required',
-	 'ram' => 'required',
-	 'type' => 'required',
-     'manufacturer_id' => 'required',
-	 'purchase_id' => 'required',
-	 'uzer_id' => 'required',
-]);
-		$equipments = Equipment::create($validated);
-			return $this->index();
+        $form = $formBuilder->create(EquipmentForm::class);
+        $form->redirectIfNotValid();
+        Equipment::create($form->getFieldValues());
+        return $this->index();
     }
 
     /**
@@ -71,7 +70,13 @@ class EquipmentController extends Controller
     public function edit($id)
     {
         $equipment = Equipment::find($id);
-		return view('equipment.edit', compact('equipment'));
+
+        $form = $formBuilder->create(EquipmentForm::class, [
+            'method' => 'PUT',
+            'url' => route('equipment.update', ['equipment'=>$equipment->id]),
+            'model' => $equipment,
+        ]);
+        return view('equipment.create', compact('form'));
     }
 
     /**
@@ -83,19 +88,13 @@ class EquipmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-       $validated = $request->validate([
-     'name' => 'required',
-     'processor' => 'required',
-	 'ram' => 'required',
-	 'type' => 'required',
-     'manufacturer_id' => 'required',
-	 'purchase_id' => 'required',
-	 'uzer_id' => 'required',
-]);
+        $form = $formBuilder->create(EquipmentForm::class);
+        $form->redirectIfNotValid();
 
-	 Equipment::whereId($id) ->
-	 update($validated);
-	return $this->index();
+        $equipment = Equipment::find($id);
+        $equipment->update($form->getFieldValues());
+
+        return redirect('/equipment/' . $id);
     }
 
     /**
