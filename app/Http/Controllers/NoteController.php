@@ -39,7 +39,7 @@ class NoteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FormBuilder $formBuilder)
     {
         $form = $formBuilder->create(EquipmentForm::class);
         $form->redirectIfNotValid();
@@ -65,7 +65,7 @@ class NoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, FormBuilder $formBuilder)
     {
         $note = Note::find($id);
 
@@ -84,7 +84,7 @@ class NoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, FormBuilder $formBuilder)
     {
         $form = $formBuilder->create(NoteForm::class);
         $form->redirectIfNotValid();
