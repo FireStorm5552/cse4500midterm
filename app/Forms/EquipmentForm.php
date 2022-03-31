@@ -13,7 +13,7 @@ use App\Models\Purchase;
 
 function getManufactuers() {
     $retVal = array();
-    $manufacuters = Manufacturer::where('id' ,'>' ,0)->get();
+    $manufactuers = Manufacturer::where('id' ,'>' ,0)->get();
     foreach($manufactuers as $manufactuer) {
         $retVal[strval($manufactuer["id"])] = strval($manufactuer["name"]);
     }
